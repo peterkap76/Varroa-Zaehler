@@ -259,7 +259,7 @@ function renderList(){
     </div>`}).join('');
   box.querySelectorAll('.colony').forEach(e=>e.onclick=()=>selectColony(e.dataset.id));
 }
-function esc(s){return String(s??'').split('&').join('&').split('<').join('<').split('>').join('>').split('"').join('"').split("'").join(''')}
+function esc(s){var d=document.createElement('div');d.textContent=String(s==null?'':s);return d.innerHTML.split(String.fromCharCode(34)).join(String.fromCharCode(38,35,51,52,59)).split(String.fromCharCode(39)).join(String.fromCharCode(38,35,51,57,59))}
 
 function selectColony(id){
   selId=id; document.body.classList.add('show-detail');
